@@ -18,7 +18,7 @@
         }
         $.ajax(settings).done(function(response) {
             console.log(response);
-            $("#data").html(JSON.stringify(response));
+            $("#data").html(JSON.stringify(response, null, 2));
         });
     }
 </script>
@@ -27,8 +27,9 @@
             width: 20em;
         }
         #data {
-            height: 20em;
-            margin: 2em;
+            min-height: 20em;
+            margin: 1em 6px;
+            padding: 0.3em;
             border: 1px solid darkgray;
             white-space: pre-wrap;
         }
