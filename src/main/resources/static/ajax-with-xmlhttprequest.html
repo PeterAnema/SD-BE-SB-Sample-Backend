@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX with XMLHttpRequest</title>
+    <script language="JavaScript">
+    function loadData(url) {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+                document.getElementById("data").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
+    </script>
+    <style>
+        #url {
+            width: 20em;
+        }
+        #data {
+            height: 20em;
+            margin: 2em;
+            border: 1px solid darkgray;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <label>URL</label> <input type="text" id="url" value="http://localhost:8080/customers">
+    <input type="button" value="Get data" onclick="loadData(url.value);">
+    <pre id="data"></pre>
+</body>
+</html>
